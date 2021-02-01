@@ -457,9 +457,10 @@ export default class MultiSlider extends React.Component {
       <React.Fragment>
         <View
           style={[
-            styles.fullTrack,
             { width: sliderLength },
-            this.props.direction === 'rtl' && { flexDirection: 'row-reverse' },
+            this.props.direction === 'rtl'
+              ? { flexDirection: 'row-reverse' }
+              : { flexDirection: 'row' },
           ]}
         >
           <View
@@ -606,9 +607,7 @@ const styles = StyleSheet.create({
     height: 50,
     justifyContent: 'center',
   },
-  fullTrack: {
-    flexDirection: 'row',
-  },
+  fullTrack: {},
   track: {
     ...Platform.select({
       ios: {
